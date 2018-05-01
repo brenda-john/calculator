@@ -4,22 +4,23 @@ const keys = calculator.querySelector('.calculator__keys');
 const display = document.querySelector('.calculator__display');
 
 keys.addEventListener('click', e => {
-  if (e.target.matches('button')) {
-    const key = e.target;
-    const action = key.dataset.action;
-    const keyContent = key.textContent;
-    const displayedNum = display.textContent;
+  if (!e.target.matches('button')) {
+    return null;
   }
-
   const key = e.target;
   const action = key.dataset.action;
+  const keyContent = key.textContent;
+  const displayedNum = display.textContent;
+
+  //   const key = e.target;
+  //   const action = key.dataset.action;
 
   if (!action) {
     if (displayedNum === '0') {
       display.textContent = keyContent;
     } else {
       display.textContent = displayedNum + keyContent;
-      //displayNum is not defined. Scope or bracket?
+      //displayNum is not defined. Scope?
     }
   }
 
