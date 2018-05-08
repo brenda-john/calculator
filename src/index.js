@@ -23,7 +23,7 @@ keys.addEventListener('click', e => {
       action === 'multiply' ||
       action === 'divide'
     ) {
-      console.log('operator key!');
+      key.classList.add('is-depressed');
     }
 
     if (action === 'decimal') {
