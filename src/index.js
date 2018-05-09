@@ -8,6 +8,9 @@ keys.addEventListener('click', e => {
     const action = key.dataset.action;
     const keyContent = key.textContent;
     const displayedNum = display.textContent;
+    Array.from(key.parentNode.children).forEach(k =>
+      k.classList.remove('is-depressed')
+    );
 
     if (!action) {
       if (displayedNum === '0') {
