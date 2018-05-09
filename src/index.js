@@ -1,6 +1,7 @@
 const calculator = document.querySelector('.calculator');
 const keys = calculator.querySelector('.calculator__keys');
 const display = calculator.querySelector('.calculator__display');
+const previousKeyType = calculator.dataset.previousKeyType;
 
 keys.addEventListener('click', e => {
   if (e.target.matches('button')) {
@@ -13,7 +14,8 @@ keys.addEventListener('click', e => {
     );
 
     if (!action) {
-      if (displayedNum === '0') {
+      if (displayedNum === '0' || previousKeyType === 'operator') {
+        //issue is with operator being undefined always, will not clear calculator display
         display.textContent = keyContent;
       } else {
         display.textContent = displayedNum + keyContent;
@@ -27,6 +29,7 @@ keys.addEventListener('click', e => {
       action === 'divide'
     ) {
       key.classList.add('is-depressed');
+      calculator.dataset.previousKeyType = 'operator';
     }
 
     if (action === 'decimal') {
