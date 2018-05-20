@@ -1,14 +1,15 @@
 const calculator = document.querySelector('.calculator');
 const keys = calculator.querySelector('.calculator__keys');
 const display = calculator.querySelector('.calculator__display');
-const previousKeyType = calculator.dataset.previousKeyType;
 
 keys.addEventListener('click', e => {
+  const key = e.target;
+  const action = key.dataset.action;
+  const keyContent = key.textContent;
+  const displayedNum = display.textContent;
+  const previousKeyType = calculator.dataset.previousKeyType;
+
   if (e.target.matches('button')) {
-    const key = e.target;
-    const action = key.dataset.action;
-    const keyContent = key.textContent;
-    const displayedNum = display.textContent;
     Array.from(key.parentNode.children).forEach(k =>
       k.classList.remove('is-depressed')
     );
