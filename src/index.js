@@ -16,7 +16,6 @@ keys.addEventListener('click', e => {
 
     if (!action) {
       if (displayedNum === '0' || previousKeyType === 'operator') {
-        //issue is with operator being undefined always, will not clear calculator display
         display.textContent = keyContent;
       } else {
         display.textContent = displayedNum + keyContent;
