@@ -39,7 +39,7 @@ keys.addEventListener('click', e => {
     }
 
     if (action === 'clear') {
-      console.log('clear key!');
+      display.textContent = '0';
     }
 
     if (action === 'calculate') {
